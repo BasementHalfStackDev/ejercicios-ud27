@@ -12,7 +12,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -27,8 +26,7 @@ public class Pieza {
 
 	private String nombre;
 
-	@OneToMany
-	@JoinColumn(name = "FK_pieza")
+	@OneToMany(mappedBy="pieza")
 	private List<Suministro> suministro;
 
 	// Constructors

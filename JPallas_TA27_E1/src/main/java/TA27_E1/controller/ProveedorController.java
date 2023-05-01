@@ -6,6 +6,7 @@ package TA27_E1.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,11 +27,13 @@ public class ProveedorController {
 	@Autowired
 	ProveedorService proveedorService;
 
+	@PreAuthorize("hasRole('USER')")
 	@GetMapping("/proveedores")
 	public List<Proveedor> listProveedores() {
 		return proveedorService.listProveedores();
 	}
 
+	@PreAuthorize("hasRole('USER')")
 	@GetMapping("/proveedores/{id}")
 	public Proveedor proveedorById(@PathVariable(name = "id") String id) {
 		Proveedor proveedorxID = new Proveedor();
@@ -40,11 +43,13 @@ public class ProveedorController {
 		return proveedorxID;
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/proveedores")
 	public Proveedor saveProveedor(@RequestBody Proveedor proveedor) {
 		return proveedorService.saveProveedor(proveedor);
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/proveedores/{id}")
 	public Proveedor updateProveedor(@PathVariable(name = "id") String id, @RequestBody Proveedor proveedor) {
 		Proveedor selectedProveedor = new Proveedor(id, proveedor.getNombre());
@@ -54,6 +59,7 @@ public class ProveedorController {
 		return updatedProveedor;
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/proveedores/{id}")
 	public void deleteProveedor(@PathVariable(name = "id") String id) {
 		proveedorService.deleteProveedor(id);
