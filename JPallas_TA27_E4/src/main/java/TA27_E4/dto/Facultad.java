@@ -12,7 +12,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -31,7 +30,6 @@ public class Facultad {
 	private List<Equipo> equipo;
 	
 	@OneToMany(mappedBy=("facultad"))
-	@JoinColumn(name = "FK_facultad_investigador")
 	private List<Investigador> investigador;
 
 	// Constructors
