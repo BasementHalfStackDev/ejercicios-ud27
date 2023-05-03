@@ -32,10 +32,12 @@ import TA27_E1.dto.SignupRequest;
 import TA27_E1.utils.JwtUtils;
 import TA27_E1.service.UserDetailsImpl;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+
+@CrossOrigin(origins = "*", maxAge = 3600) // Allows requests from all origins with 1 hour cache
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthController {
+	// Autowire dependencies
 	@Autowired
 	AuthenticationManager authenticationManager;
 
@@ -51,6 +53,7 @@ public class AuthController {
 	@Autowired
 	JwtUtils jwtUtils;
 
+	// Post mapping to sign in and get the token
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -68,12 +71,15 @@ public class AuthController {
 				new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
 	}
 
+	// Signup to reguster a new user
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+		// Checks username is availabe
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
 		}
 
+		// Checks email is availabe
 		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
 			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
 		}
@@ -85,6 +91,7 @@ public class AuthController {
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 
+		// Checks roles are valid and adds them to list of roles
 		if (strRoles == null) {
 			Role userRole = roleDAO.findByName(ERole.ROLE_USER)
 					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -106,6 +113,7 @@ public class AuthController {
 			});
 		}
 
+		// Sets roles and saves user
 		user.setRoles(roles);
 		userRepository.save(user);
 

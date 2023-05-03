@@ -69,7 +69,7 @@ public class WebSecurityConfig {
 	        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	        .and()
 	    .authorizeHttpRequests()
-	        .requestMatchers("/api/auth/**").permitAll()
+	        .requestMatchers("/auth/**").permitAll()
 	        .requestMatchers("/api/**").permitAll().anyRequest().authenticated()
 	    .and()
 	    .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)

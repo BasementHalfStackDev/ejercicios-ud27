@@ -27,6 +27,7 @@ public class SuministroController {
 	@Autowired
 	SuministroService suministroService;
 
+	// Assigns roles needed to access endpoint
 	@PreAuthorize("hasRole('USER')")
 	@GetMapping("/suministros")
 	public List<Suministro> listSuministros() {
