@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import TA27_E3.dto.User;
+import TA27_E4.dto.User;
 
 public interface UserDAO extends JpaRepository<User, Long> {
 	Optional<User> findByUsername(String username);

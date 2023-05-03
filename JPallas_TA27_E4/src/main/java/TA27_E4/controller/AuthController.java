@@ -20,17 +20,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import TA27_E3.dao.RoleDAO;
-import TA27_E3.dao.UserDAO;
-import TA27_E3.dto.ERole;
-import TA27_E3.dto.Role;
-import TA27_E3.dto.User;
-import TA27_E3.dto.JwtResponse;
-import TA27_E3.dto.LoginRequest;
-import TA27_E3.dto.MessageResponse;
-import TA27_E3.dto.SignupRequest;
-import TA27_E3.utils.JwtUtils;
-import TA27_E3.service.UserDetailsImpl;
+import TA27_E4.dao.RoleDAO;
+import TA27_E4.dao.UserDAO;
+import TA27_E4.dto.ERole;
+import TA27_E4.dto.Role;
+import TA27_E4.dto.User;
+import TA27_E4.dto.JwtResponse;
+import TA27_E4.dto.LoginRequest;
+import TA27_E4.dto.MessageResponse;
+import TA27_E4.dto.SignupRequest;
+import TA27_E4.utils.JwtUtils;
+import TA27_E4.service.UserDetailsImpl;
 
 
 @CrossOrigin(origins = "*", maxAge = 3600) // Allows requests from all origins with 1 hour cache

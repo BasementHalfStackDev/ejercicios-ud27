@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import TA27_E3.service.UserDetailsServiceImpl;
+import TA27_E4.service.UserDetailsServiceImpl;
 
 // Web security configuration
 @Configuration

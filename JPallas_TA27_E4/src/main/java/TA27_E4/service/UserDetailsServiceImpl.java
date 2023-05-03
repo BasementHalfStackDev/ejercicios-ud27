@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import TA27_E3.dao.UserDAO;
-import TA27_E3.dto.User;
+import TA27_E4.dao.UserDAO;
+import TA27_E4.dto.User;
 
 @Service // Implement service
 public class UserDetailsServiceImpl implements UserDetailsService {
