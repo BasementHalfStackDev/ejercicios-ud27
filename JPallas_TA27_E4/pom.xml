@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>JPallas_TA27_E3</artifactId>
+	<artifactId>JPallas_TA27_E4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>JPallas_TA27_E3</name>
-	<description>Unit 27 exercise 3</description>
+	<name>JPallas_TA27_E4</name>
+	<description>Unit 27 exercise 4</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
